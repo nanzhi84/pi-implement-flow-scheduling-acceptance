@@ -8,7 +8,7 @@
     "publish": ["node", "publish.mjs"]
   },
   "commandTimeoutMs": 60000,
-  "resources": { "mode": "exclusive", "description": "Synthetic data only in FLOW_RESOURCE_DIR; one execution phase at a time" },
+  "resources": { "mode": "isolated", "description": "Synthetic data only in each task FLOW_RESOURCE_DIR; commands own and close any loopback listener before returning" },
   "artifacts": { "destination": "GitHub release assets in the selected repository", "retentionDays": 90 },
   "agents": {
     "implementation": { "tools": ["read", "edit", "write"], "extensions": [], "instructions": ["AGENTS.md"] },
