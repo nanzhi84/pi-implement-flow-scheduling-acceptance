@@ -14,6 +14,7 @@ if (mode === 'prepare') {
 } else if (mode === 'check') {
   execFileSync(process.execPath, ['--check', 'app.mjs'], { stdio: 'pipe' });
 } else if (mode === 'accept') {
+  if (execFileSync(process.execPath, ['app.mjs', ' Ada '], { encoding: 'utf8' }) !== 'Hello,  Ada !\n') throw new Error('surrounding-name-spaces');
   const greeting = execFileSync(process.execPath, ['app.mjs', 'Ada'], { encoding: 'utf8' });
   if (greeting !== 'Hello, Ada!\n') throw new Error('greeting contract failed');
   let rejected = false;
