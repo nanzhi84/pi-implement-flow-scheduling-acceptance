@@ -46,6 +46,7 @@ if (mode === 'prepare') {
       names.add(item.name); assertions.push(item);
     }
   }
+  if (execFileSync(process.execPath, ['app.mjs', 'Zoë'], { encoding: 'utf8' }) !== 'Hello, Zoë!\n') throw new Error('unicode-name');
   process.stdout.write(JSON.stringify({ passed: true, assertions }) + '\n');
 } else {
   throw new Error('Unsupported fixture phase');
